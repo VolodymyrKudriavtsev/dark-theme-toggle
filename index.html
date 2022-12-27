@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark theme toggle</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <svg>
+      <use href="./img/sprite.svg#sun"></use>
+    </svg>
+
+    <svg>
+      <use href="./img/sprite.svg#moon"></use>
+    </svg>
+
+    <fieldset class="switcher">
+      <legend class="switcher__legend">Theme</legend>
+      <input
+        class="switcher__radio switcher__radio--light"
+        type="radio"
+        name="color-theme"
+        value="light"
+      />
+      <input
+        class="switcher__radio switcher__radio--dark"
+        type="radio"
+        name="color-theme"
+        value="dark"
+      />
+      <div class="switcher__status"></div>
+    </fieldset>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
