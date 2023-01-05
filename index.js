@@ -1,47 +1,30 @@
 const refs = {
   toggle: document.querySelector(".switcher"),
-  // toggleLight: document.querySelector(".switcher__radio--light"),
-  // toggleDark: document.querySelector(".switcher__radio--dark"),
   HTML: document.querySelector("html"),
 };
 
-// const addDarkClassToHTML = () => {
-//   try {
-//     if (localStorage.getItem("theme") === "dark") {
-//       refs.HTML.classList.add("dark");
-//       refs.toggleDark.checked = true;
-//     } else {
-//       refs.HTML.classList.remove("dark");
-//     }
-//   } catch (err) {
-//     return;
-//   }
-// };
-
-// const onThemeToggleClick = (e) => {
-//   localStorage.getItem("theme") === "dark"
-//     ? localStorage.removeItem("theme")
-//     : localStorage.setItem("theme", "dark");
-
-//   addDarkClassToHTML();
-// };
-
-// refs.themeToggle.addEventListener("click", onThemeToggleClick);
+const addDarkClassToHTML = () => {
+  try {
+    if (localStorage.getItem("theme") === "dark") {
+      refs.HTML.classList.add("dark");
+      refs.toggle.elements[1].checked = true;
+    } else {
+      refs.HTML.classList.remove("dark");
+      refs.toggle.elements[0].checked = true;
+    }
+  } catch (err) {
+    return;
+  }
+};
 
 refs.toggle.addEventListener("change", (e) => {
-  console.log("e.target:", e.target);
+  if (e.target.value === "dark") {
+    refs.HTML.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    refs.HTML.classList.remove("dark");
+    localStorage.removeItem("theme");
+  }
 });
 
-// refs.toggleLight.addEventListener("change", () => {
-//   console.log("CHANGE!!!");
-//   console.log(refs.toggleLight.checked);
-//   console.log(refs.toggleDark.checked);
-// });
-
-// refs.toggleDark.addEventListener("click", () => {
-//   console.log("CKICK!!!");
-//   console.log(refs.toggleDark.checked);
-//   console.log(refs.toggleLight.checked);
-// });
-
-// addDarkClassToHTML();
+addDarkClassToHTML();
